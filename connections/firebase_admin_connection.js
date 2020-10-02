@@ -1,4 +1,4 @@
-var admin = require("firebase-admin");
+var admin = require("firebase");
 
 var serviceAccount = require("../member-init-firebase-adminsdk-7srdz-2b72503b8d.json");
 

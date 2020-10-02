@@ -1,4 +1,6 @@
-var firebase = require('firebase');
+var firebase = require('firebase/app');
+    require("firebase/auth");
+    require("firebase/database");
 
 var firebaseConfig = {
     apiKey: "AIzaSyCwodgYg3MmgaKdgu_gYyJPcvjbgeQ4o6Y",
@@ -12,6 +14,5 @@ var firebaseConfig = {
   };
 
   firebase.initializeApp(firebaseConfig);
-  firebase.analytics();
 
   module.exports = firebase;
