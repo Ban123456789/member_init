@@ -7,17 +7,30 @@
 </head>
 <body>
 	<h1>留言板</h1>
-	<form action="/messageBoard" method="post">
-		<input type="text" name="content" placeholder="填寫留言訊息">
-		<input type="submit" valut="送出">
-	</form>
-	<a href="/login">登入</a>
-	<a href="/signup">註冊</a>
+	<% if (!auth) { %>
+		<h2>您尚未登入，請先登入:)</h2>
+	<% } %>
+
+	<% if (auth) { %>
+		<form action="/messageBoard" method="post">
+			<input type="text" name="content" placeholder="填寫留言訊息">
+			<input type="submit" valut="送出">
+		</form>
+	<% } %>
+
+	<% if (!auth) { %>
+		<a href="/login">登入</a>
+		<a href="/signup">註冊</a>
+	<% } %>
+
 		<a href="/user">個人頁面</a>
+
 	<ul>
+		<% for( let i in list ) { %>
 			<li>
-				姓名 : 留言內容
+				<%= list[i].name %> : <%= list[i].content %> 
 			</li>
-	 </ul>
+		<% } %>
+	</ul>
 </body>
 </html>

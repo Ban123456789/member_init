@@ -4,15 +4,20 @@ var firebaseDb = require('../connections/firebase_admin_connection');
 var firebase = require('../connections/firebase_connection');
 
 router.get('/', function (req, res, next) {
-    console.log(firebase.auth());
-
-    firebaseDb.ref().once('value', function(content){
-        console.log(content.val());
-    });;
-
-    res.render('index', {
-        title: '六角學院留言板'
-    });
+    let auth = req.session.uid;
+    let listContent = [];
+        firebaseDb.ref('list').once('value', function(listCon){
+            listContent = listCon.val()
+            // console.log(listContent);
+            // for(var i in listContent){
+            //     console.log(listContent[i]);
+            // }
+            res.render('index', {
+                title: '六角學院留言板',
+                auth: auth,
+                list: listContent
+            });
+        });     
 });
 /* GET home page. */
 module.exports = router;

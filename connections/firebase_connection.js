@@ -1,6 +1,9 @@
-var firebase = require('firebase/app');
-    require("firebase/auth");
-    require("firebase/database");
+// todo 第一種方法
+// var firebase = require('firebase/app');
+//     require("firebase/auth");
+//     require("firebase/database");
+// todo 第二種方法
+var firebase = require('firebase');
 
 var firebaseConfig = {
     apiKey: "AIzaSyCwodgYg3MmgaKdgu_gYyJPcvjbgeQ4o6Y",
